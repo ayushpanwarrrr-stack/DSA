@@ -1,0 +1,19 @@
+class Solution {
+ public:
+  string addBinary(string a, string b) {
+    string ans;
+    int cr = 0;
+    int i = a.length() - 1;
+    int j = b.length() - 1;
+    while (i >= 0 || j >= 0 || cr) {
+      if (i >= 0)
+        cr += a[i--] - '0';
+      if (j >= 0)
+        cr += b[j--] - '0';
+      ans += cr % 2 + '0';
+      cr /= 2;
+    }
+    reverse(begin(ans), end(ans));
+    return ans;
+  }
+};
